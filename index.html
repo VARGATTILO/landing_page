@@ -2,321 +2,110 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Marca — Landing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TuMarca - Landing</title>
 
-  <!-- Fuente: Oswald -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Fuente Oswald -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap">
 
   <style>
-    :root{
-      --bg: #0d0f13;
-      --panel: #141821;
-      --ink: #e8eaed;
-      --muted: #9aa0a6;
-      --brand: #6ee7f5;    /* detalle cian */
-      --brand-2:#b388ff;   /* acento violeta */
-      --line: #232a36;
-      --ok: #22c55e;
-      --err: #ef4444;
+    body {
+      margin: 0;
+      font-family: "Oswald", sans-serif;
+      background: #0d0f13;
+      color: #e8eaed;
     }
 
-    /* RESET + BASE */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Oswald", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.4;
-      letter-spacing:.2px;
-    }
-    a{color:var(--brand); text-decoration:none}
-    img{max-width:100%; display:block}
-
-    /* LAYOUT */
-    .container{width:min(1200px, 92%); margin:auto}
-    section{padding:80px 0}
-    .grid{display:grid; gap:28px}
-
-    /* HEADER */
-    header{
-      position:fixed; inset:0 0 auto 0; height:66px;
-      background:linear-gradient(180deg, rgba(13,15,19,.9), rgba(13,15,19,.55) 70%, transparent);
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
       backdrop-filter: blur(8px);
-      z-index:999;
-      border-bottom:1px solid rgba(255,255,255,.04);
-    }
-    .nav{
-      height:66px; display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{
-      font-weight:600; letter-spacing:.5px; text-transform:uppercase;
-      display:flex; align-items:center; gap:10px;
-    }
-    .brand-dot{
-      width:10px; height:10px; border-radius:50%;
-      background: radial-gradient( circle at 30% 30%, var(--brand), var(--brand-2));
-      box-shadow: 0 0 14px var(--brand);
-    }
-    .menu{display:flex; gap:22px}
-    .menu a{color:var(--muted); font-weight:400}
-    .menu a:hover{color:var(--ink)}
-
-    /* HERO */
-    .hero{
-      min-height:92vh;
-      display:grid; place-items:center;
-      background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(110,231,245,.08), transparent 60%),
-        radial-gradient(1000px 500px at -10% 20%, rgba(179,136,255,.08), transparent 60%),
-        linear-gradient(180deg, #0c0e12 0%, #0b0d11 100%);
-      padding-top:66px;
-    }
-    .hero-wrap{display:grid; grid-template-columns: 1.2fr .8fr; gap:40px; align-items:center}
-    .kicker{
-      color:var(--brand); text-transform:uppercase; letter-spacing:1.8px; font-size:.9rem;
-    }
-    h1{
-      margin:.2em 0 .2em; font-size: clamp(2.2rem, 4.6vw, 4rem); line-height:1.1; font-weight:600;
-    }
-    .lead{color:var(--muted); font-weight:300; font-size: clamp(1.05rem, 1.6vw, 1.2rem)}
-    .cta-row{display:flex; gap:14px; margin-top:26px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 18px; border-radius:10px; border:1px solid var(--line);
-      background:linear-gradient(180deg, #171b24, #10141b);
-      color:var(--ink); font-weight:500;
-    }
-    .btn:hover{border-color:#2c3443}
-    .btn.primary{
-      border:0;
-      background:linear-gradient(135deg, var(--brand), var(--brand-2));
-      color:#0b0d11; font-weight:700;
-      text-shadow: 0 0 0 transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:14px; padding:18px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.35);
-    }
-    .preview{
-      aspect-ratio: 4/3; border-radius:10px; overflow:hidden; border:1px solid #1e2531;
-      background:#0a0c10;
-      display:grid; place-items:center;
-    }
-    .preview img{opacity:.9; filter:contrast(1.05) saturate(1.02) brightness(.9)}
-    .badge{
-      margin-top:14px; display:flex; gap:8px; align-items:center; color:var(--muted); font-size:.92rem;
-    }
-    .dot{width:8px; height:8px; border-radius:50%; background:var(--ok); box-shadow:0 0 10px var(--ok)}
-
-    /* FEATURES / CARDS */
-    .features{background: linear-gradient(180deg, #0b0d11, #0e1117)}
-    .cards{grid-template-columns: repeat(3, 1fr)}
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line); padding:24px; border-radius:12px;
-      transition: transform .25s ease, border-color .25s ease;
-    }
-    .card:hover{transform: translateY(-3px); border-color:#2b3442}
-    .card h3{margin:8px 0 6px; font-weight:500}
-    .card p{color:var(--muted); font-weight:300}
-
-    /* BANNER IMAGEN */
-    .banner{
-      border-radius:14px; overflow:hidden; border:1px solid var(--line);
-      box-shadow: 0 10px 40px rgba(0,0,0,.35);
-    }
-    .banner img{width:100%; height:520px; object-fit:cover; object-position:center}
-
-    /* CTA */
-    .cta{
-      background: radial-gradient(900px 500px at 10% -20%, rgba(110,231,245,.08), transparent 60%),
-                  radial-gradient(800px 500px at 110% 120%, rgba(179,136,255,.09), transparent 60%),
-                  linear-gradient(180deg, #0b0d11, #0e1117);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      text-align:center;
-    }
-    .cta .btn{min-width:220px}
-
-    /* CONTACTO */
-    .contact{
-      background: linear-gradient(180deg, #0e1117, #0b0d11);
-      border-top:1px solid var(--line);
-    }
-    .form{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line); border-radius:14px; padding:24px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.35);
-      max-width:680px; margin:auto;
-    }
-    .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    label{display:block; font-size:.9rem; color:var(--muted); margin:6px 0}
-    input, textarea{
-      width:100%; padding:14px 14px; border-radius:10px;
-      background:#0a0c10; border:1px solid #1e2531; color:var(--ink);
-      outline: none;
-    }
-    input:focus, textarea:focus{border-color:#2c3443}
-    textarea{min-height:140px; resize:vertical}
-    .hint{color:var(--muted); font-size:.9rem; margin-top:4px}
-
-    .submit{
-      margin-top:14px; width:100%;
-      border:0; border-radius:10px; padding:14px;
-      background:linear-gradient(135deg, var(--brand), var(--brand-2));
-      color:#0b0d11; font-weight:700; cursor:pointer;
+    header nav a {
+      color: #9aa0a6;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 1rem;
     }
 
-    /* FOOTER */
-    footer{
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      text-align:center; padding:34px 0; font-weight:300;
+    header nav a:hover {
+      color: #ffffff;
     }
 
-    /* ANIMACIONES */
-    [data-anim]{opacity:0; transform: translateY(16px); transition: all .6s ease}
-    [data-anim].in{opacity:1; transform: translateY(0)}
-
-    /* RESPONSIVE */
-    @media (max-width: 980px){
-      .hero-wrap{grid-template-columns: 1fr}
-      .menu{display:none}
-      .cards{grid-template-columns: 1fr}
-      .row{grid-template-columns:1fr}
-      .banner img{height:360px}
+    .hero {
+      padding-top: 150px;
+      padding-bottom: 150px;
+      text-align: center;
+      background: linear-gradient(180deg, #0d0f13, #141821);
     }
-  </style>
-</head>
 
-<body>
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="brand"><span class="brand-dot"></span> TuMarca</div>
-      <nav class="menu">
-        #servicios">Servicios</a>
-        #proyectos">Proyectos</a>
-        #contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+    .hero p {
+      color: #9aa0a6;
+      font-size: 1.2rem;
+    }
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div data-anim>
-        <div class="kicker">Soluciones Profesionales</div>
-        <h1>Diseño elegante, desempeño sólido y resultados reales.</h1>
-        <p class="lead">Creamos experiencias digitales modernas con un enfoque minimalista y detalles premium. Sitios rápidos, seguros y listos para convertir.</p>
-        #contacto" class="btn primary">Contáctanos</a>
-        #servicios" class="btn">Ver servicios</a>
-      </div>
+    section {
+      padding: 80px 10%;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-      <div class="hero-card" data-anim>
-        <div class="preview">
-          <!-- Cambia la imagen por una tuya -->
-          <img src="https://images.unsplash.com/photo-1502951700-13537d348c36?auto=format&fit=crop&w=1400&q=80" alt="Vista previa">
-        </div>
-        <div class="badge"><span class="dot"></span> Online — SSL activo</div>
-      </div>
-    </div>
-  </section>
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="features">
-    <div class="container grid cards">
-      <div class="card" data-anim>
-        <h3>Landing Pages</h3>
-        <p>Diseños oscuros y elegantes, optimizados para conversión, SEO y tiempos de carga.</p>
-      </div>
-      <div class="card" data-anim>
-        <h3>Branding & UI</h3>
-        <p>Jerarquía visual clara, tipografías pro (Oswald), grillas precisas y componentes reutilizables.</p>
-      </div>
-      <div class="card" data-anim>
-        <h3>Automatizaciones</h3>
-        <p>Formularios integrados con correo automático, sin backend y sin costos de hosting.</p>
-      </div>
-    </div>
-  </section>
+    .card {
+      background: #141821;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #232a36;
+    }
 
-  <!-- BANNER / PROYECTOS -->
-  <section id="proyectos">
-    <div class="container banner" data-anim>
-      <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80" alt="Proyecto destacado">
-    </div>
-  </section>
+    .banner {
+      height: 400px;
+      border-radius: 10px;
+      background: url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+    }
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container" data-anim>
-      <h2 style="font-weight:500; font-size: clamp(1.6rem, 3vw, 2.2rem); margin:0 0 10px">¿Listo para empezar?</h2>
-      <p class="lead" style="margin:0 0 22px">Cuéntanos tu idea y te respondemos hoy.</p>
-      #contacto" class="btn primary">Iniciar proyecto</a>
-    </div>
-  </section>
+    form {
+      background: #141821;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #232a36;
+      margin-top: 40px;
+    }
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="contact">
-    <div class="container">
-      <h2 style="text-align:center; font-weight:500; margin:0 0 24px" data-anim>Contacto</h2>
+    form input, form textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #232a36;
+      background: #0a0c10;
+      color: white;
+      margin-bottom: 15px;
+      font-family: inherit;
+    }
 
-      <form class="form" action="https://formmy.app/YOUR_FORM_ID" method="POST" data-anim>
-        <div class="row">
-          <div>
-            <label>Nombre</label>
-            <input type="text" name="name" placeholder="Tu nombre" required>
-          </div>
-          <div>
-            <label>Correo</label>
-            <input type="email" name="email" placeholder="tu@correo.com" required>
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label>Teléfono</label>
-            <input type="text" name="phone" placeholder="+51 999 999 999">
-          </div>
-          <div>
-            <label>Asunto</label>
-            <input type="text" name="subject" placeholder="Asunto del mensaje">
-          </div>
-        </div>
-
-        <label>Mensaje</label>
-        <textarea name="message" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
-        <div class="hint">Al enviar aceptas nuestra <a href="#">política de privacidad</a>.</div>
-
-        <!-- Opcional: redirección de éxito -->
-        <!-- <input type="hidden" name="_redirect" value="https://tudominio.com/gracias.html"> -->
-
-        <button class="submit" type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © <span id="y"></span> — TuMarca. Hecho con 💙
-  </footer>
-
-  <!-- JS mínimo: animaciones on-scroll + año -->
-  <script>
-    // Año actual
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Observador para animaciones
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      })
-    }, {threshold:.18});
-
+    form button {
+      width: 100%;
+      padding: 14px;
+      background: #6ee7f5;
+      border: none;
+      color: #000;
+      font-weight: bold;
