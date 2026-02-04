@@ -56,7 +56,10 @@
 
     /* Sections */
     section{padding:70px 20px}
-    .container{width:min(1100px, 92%); margin:auto}
+    .container{width:min(1100px, 92%);
+               margin:auto;
+               text-align: center;
+              }
 
     /* Cards */
     .cards{display:grid; gap:24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
@@ -90,9 +93,9 @@
       <img src="./Vargattilo_Logo_White.png" height="55px" alt="VARGATTILO">
     </div>
     <nav>
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#servicios">Services</a>
+      <a href="#proyectos">About Us</a>
+      <a href="#contacto">Contact Us</a>
     </nav>
   </header>
 
@@ -142,8 +145,8 @@
     <div class="container">
       <h2 style="margin:0 0 20px">Contact Us</h2>
 
-      <div class="form-wrap">
-        <!-- Reemplaza YOUR_FORM_ID por tu ID real de formmy.app -->
+      <!--<div class="form-wrap">
+         Reemplaza YOUR_FORM_ID por tu ID real de formmy.app
         <form action="https://formmy.app/YOUR_FORM_ID" method="POST">
           <label>Nombre</label>
           <input type="text" name="name" placeholder="Tu nombre" required>
@@ -158,10 +161,11 @@
           <textarea name="message" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
 
           <!-- (Opcional) redirección tras éxito -->
-          <!-- <input type="hidden" name="_redirect" value="https://vargattilo.github.io/landing_page/gracias.html"> -->
+          <!-- <input type="hidden" name="_redirect" value="https://vargattilo.github.io/landing_page/gracias.html"> 
 
-          <button type="submit" class="submit">Enviar</button>
-        </form>
+          <button type="submit" class="submit">Send</button>
+        </form>-->
+        <iframe src="https://formmy.app/embed/69801be525997d6b97c6e7e0" width="100%" height="650" frameborder="0"></iframe>
       </div>
     </div>
   </section>
